@@ -105,29 +105,49 @@
 # cat2 = Cat("Ласка", 4, True)
 # cat3 = Cat("Бомба", 404, False)
 
-class Building:
-    year = None
-    city = None
-    def __init__(self, year, city):
-        self.year = year
-        self.city = city
-    def get_info(self):
-        print("Year:", self.year, "City:", self.city)
-class school(Building):
-    pupils = 0
-    def __init__(self, pupils, year, city):
-        super(school, self).__init__(year, city)
-        self.pupils = pupils
+# class Building:
+#     __year = None
+#     __city = None
+#     def __init__(self, year, city):
+#         self.year = year
+#         self.city = city
+#     def get_info(self):
+#         print("Year:", self.year, "City:", self.city)
+# class school(Building):
+#     pupils = 0
+#     def __init__(self, pupils, year, city):
+#         super(school, self).__init__(year, city)
+#         self.pupils = pupils
+#     def get_info(self):
+#         super().get_info()
+#         print("Pupils:", self.pupils)
+#
+# class shop(Building):
+#     pass
+#
+# class museum(Building):
+#     pass
+#
+#
+# school = school(431, 1999, "Moscow")
+# school.get_info()
+# shop = shop(1999, "Moscow")
+# museum = museum(1999, "Moscow")
 
-class shop(Building):
-    pass
+import webbrowser
 
-class museum(Building):
-    pass
+def validator(func):
+    def wrapper(url):
+        if "." in url:
+            func(url)
+        else:
+            print('Вы ввели неверный URL')
+    return wrapper
+@validator
 
 
-school = school(431, 1999, "Moscow")
-school.get_info()
-shop = shop(1999, "Moscow")
-museum = museum(1999, "Moscow")
+
+def open_url(url):
+    webbrowser.open(url)
+open_url("https://itproger.com")
 
